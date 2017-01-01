@@ -14,20 +14,6 @@ import styles from './styles';
 import * as Animatable from 'react-native-animatable';
 var primary = require('../../themes/variable').brandPrimary;
 
-const renderPagination = (index, total, context) => {
-    return (
-        <View style={{ position: 'absolute', bottom: -25, right: 10 }}>
-            <Text>
-                <Text style={{ color: '#007aff', fontSize: 20 }}>
-                    {index + 1}
-                </Text>
-                /{total}
-            </Text>
-        </View>
-    )
-}
-
-
 
 
 export default class Story extends Component {
@@ -122,36 +108,6 @@ export default class Story extends Component {
                                     </View>
                                 </View>
 
-                                <View style={styles.wrapper}>
-                                    <Swiper
-                                        height={240}
-                                        loop={true}
-                                        dot={<View style={styles.swiperDot} />}
-                                        activeDot={<View style={styles.swiperActiveDot}
-                                            showsButtons={true} />}
-                                        >
-                                        <Lightbox navigator={this.props.navigator}>
-                                            <View style={styles.slide}>
-                                                <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} />
-                                            </View>
-                                        </Lightbox>
-                                        <Lightbox navigator={this.props.navigator}>
-                                            <View style={styles.slide}>
-                                                <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')} />
-                                            </View>
-                                        </Lightbox>
-                                        <Lightbox navigator={this.props.navigator}>
-                                            <View style={styles.slide}>
-                                                <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')} />
-                                            </View>
-                                        </Lightbox>
-                                        <Lightbox navigator={this.props.navigator}>
-                                            <View style={styles.slide}>
-                                                <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/5.jpg')} />
-                                            </View>
-                                        </Lightbox>
-                                    </Swiper>
-                                </View>
 
                                 <View style={{ alignSelf: 'center' }}>
                                     <Button transparent iconRight onPress={() => this.popRoute('home')} textStyle={{ color: '#222', fontWeight: '700' }}>
@@ -159,6 +115,8 @@ export default class Story extends Component {
                                         <Icon name='ios-arrow-forward' style={styles.forwardBtn} />
                                     </Button>
                                 </View>
+
+                                
                             </View>
                         </View>
                     </Content>

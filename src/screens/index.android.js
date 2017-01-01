@@ -3,6 +3,9 @@ import { Navigation } from 'react-native-navigation';
 import LoginScreen from './LoginScreen';
 import ChannelScreen from './ChannelScreen';
 import StoryScreen from './StoryScreen';
+import infiniteListScreen from './infiniteListScreen';
+
+
 
 import FirstTabScreen from './FirstTabScreen';
 import SecondTabScreen from './SecondTabScreen';
@@ -18,6 +21,7 @@ export function registerScreens() {
 
   Navigation.registerComponent('example.ChannelScreen', () => ChannelScreen);
   Navigation.registerComponent('example.StoryScreen', () => StoryScreen);
+  Navigation.registerComponent('example.infiniteListScreen', () => infiniteListScreen);
 
   Navigation.registerComponent('example.FirstTabScreen', () => FirstTabScreen);
   Navigation.registerComponent('example.SecondTabScreen', () => SecondTabScreen);

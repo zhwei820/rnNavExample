@@ -25,10 +25,6 @@ export default class Channel extends Component {
     static propTypes = {
     }
 
-    // <Header>
-    //     <HeaderContent />
-    // </Header>
-
     render() {
         return (
             <Container theme={theme} >

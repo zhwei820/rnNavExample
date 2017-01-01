@@ -41,25 +41,7 @@ class Home extends Component {
         return (
             <Container theme={theme} style={{backgroundColor: '#fff'}}>
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
-                <Header>
-                  <View style={styles.header} >
-                    <View style={styles.rowHeader}>
-                      <Button
-                        transparent
-                        style={styles.btnHeader}
-                        onPress={() => this.props.reset(this.props.navigation.key)}
-                      >
-                        <Icon name="ios-power" style={{lineHeight: 30}} />
-                      </Button>
-
-                      <Image source={headerLogo} style={styles.imageHeader} />
-
-                      <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
-                        <Icon name="ios-menu" />
-                      </Button>
-                    </View>
-                  </View>
-                </Header>
+             
 
                     <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}}>
                         <View>

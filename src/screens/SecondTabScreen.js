@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+
 import {
   Text,
   View,
   ScrollView,
   TouchableOpacity,
   StyleSheet,
-  Alert
+  Alert,
+  Platform
+
 } from 'react-native';
 
 export default class SecondTabScreen extends Component {
@@ -47,6 +50,40 @@ export default class SecondTabScreen extends Component {
 
         <TouchableOpacity onPress={ this.onToggleTabsPress.bind(this) }>
           <Text style={styles.button}>Toggle Tabs</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.onPushPress.bind(this)}>
+          <Text style={styles.button}>Push Plain Screen</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.onPushStyledPress.bind(this)}>
+          <Text style={styles.button}>Push Styled Screen</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.onModalPress.bind(this)}>
+          <Text style={styles.button}>Show Modal Screen</Text>
+        </TouchableOpacity>
+
+        {
+          Platform.OS === 'ios' ?
+            <TouchableOpacity onPress={this.onLightBoxPress.bind(this)}>
+              <Text style={styles.button}>Show LightBox</Text>
+            </TouchableOpacity> : false
+        }
+
+        {
+          Platform.OS === 'ios' ?
+            <TouchableOpacity onPress={this.onInAppNotificationPress.bind(this)}>
+              <Text style={styles.button}>Show In-App Notification</Text>
+            </TouchableOpacity> : false
+        }
+
+        <TouchableOpacity onPress={this.onStartSingleScreenApp.bind(this)}>
+          <Text style={styles.button}>Show Single Screen App</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.onStartChannelScreenApp.bind(this)}>
+          <Text style={styles.button}>Show Icon Screen App</Text>
         </TouchableOpacity>
 
       </View>
@@ -127,6 +164,60 @@ export default class SecondTabScreen extends Component {
         Alert.alert('NavBar', 'Dynamic Save button pressed');
       }
     }
+  }
+
+
+  onPushPress() {
+    this.props.navigator.push({
+      title: "More",
+      screen: "example.PushedScreen"
+    });
+  }
+
+  onPushStyledPress() {
+    this.props.navigator.push({
+      title: "Styled",
+      screen: "example.StyledScreen"
+    });
+  }
+
+  onModalPress() {
+    this.props.navigator.showModal({
+      title: "Modal",
+      screen: "example.ModalScreen"
+    });
+  }
+
+  onLightBoxPress() {
+    this.props.navigator.showLightBox({
+      screen: "example.LightBoxScreen",
+      style: {
+        backgroundBlur: "dark"
+      },
+      passProps: {
+        greeting: 'hey there'
+      },
+    });
+  }
+
+  onInAppNotificationPress() {
+    this.props.navigator.showInAppNotification({
+      screen: "example.NotificationScreen"
+    });
+  }
+
+  onStartSingleScreenApp() {
+    this.props.navigator.push({
+      title: "Styled",
+      screen: "example.infiniteListScreen"
+    });
+  }
+
+  onStartChannelScreenApp() {
+    this.props.navigator.push({
+      title: "Styled",
+      screen: "example.infiniteListScreen"
+    });
   }
 }
 
