@@ -1,5 +1,5 @@
 
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 
 // import { connect } from 'react-redux';
@@ -22,49 +22,59 @@ const singUp = require('../../../images/BG-signUp.png');
 
 export default class SideBar extends Component {
 
-  static propTypes = {
+    static propTypes = {
 
-  }
+    }
 
-  onPushPress() {
-    this._toggleDrawer();
-    this.props.navigator.showModal({
-      title: "Modal",
-      screen: "example.ModalScreen"
-    });
-  }
+    onPushPress() {
+        // this._toggleDrawer();
+        this.props.navigator.showModal({
+            title: "Modal",
+            screen: "example.ModalScreen"
+        });
+    }
 
-  _toggleDrawer() {
-    this.props.navigator.toggleDrawer({
-      to: 'closed',
-      side: 'left',
-      animated: true
-    });
-  }
+    _toggleDrawer() {
+        this.props.navigator.toggleDrawer({
+            to: 'closed',
+            side: 'left',
+            animated: true
+        });
+    }
 
-    render(){
+    onReplaceTab2Press() {
+        this._toggleDrawer();
+        // push/pop navigator actions affect the navigation stack of the current screen only.
+        // since side menu actions are normally directed at sibling tabs, push/pop will
+        // not help us. the recommended alternative is to use deep links for this purpose
+        this.props.navigator.handleDeepLink({
+            link: "tab2/example.SecondTabScreen"
+        });
+    }
+
+    render() {
         return (
             <Container>
                 <Image source={require('../../../images/sid.png')} style={styles.background} >
                     <Content style={styles.drawerContent}>
-                        <List  foregroundColor={'white'} >
-                            <ListItem button onPress={() => this.onPushPress()} iconLeft style={styles.links} >
+                        <List foregroundColor={'white'} >
+                            <ListItem button onPress={() => this.onReplaceTab2Press()} iconLeft style={styles.links} >
                                 <Icon name='ios-grid-outline' />
                                 <Text style={styles.linkText} >NEWS</Text>
                             </ListItem>
-                            <ListItem button onPress={() => this.onPushPress()}  iconLeft style={styles.links} >
+                            <ListItem button onPress={() => this.onPushPress()} iconLeft style={styles.links} >
                                 <Icon name='ios-keypad-outline' />
                                 <Text style={styles.linkText}>CHANNELS</Text>
                             </ListItem>
-                            <ListItem button onPress={() => this.onPushPress()}  iconLeft style={styles.links} >
-                              <Icon name='ios-stats' />
-                              <Text style={styles.linkText}> OVERVIEW</Text>
+                            <ListItem button onPress={() => this.onPushPress()} iconLeft style={styles.links} >
+                                <Icon name='ios-stats' />
+                                <Text style={styles.linkText}> OVERVIEW</Text>
                             </ListItem>
-                            <ListItem button onPress={() => this.onPushPress()}  iconLeft style={styles.links} >
+                            <ListItem button onPress={() => this.onPushPress()} iconLeft style={styles.links} >
                                 <Icon name='ios-calendar-outline' />
                                 <Text style={styles.linkText}>CALENDAR</Text>
                             </ListItem>
-                            <ListItem button onPress={() => this.onPushPress()}  iconLeft style={styles.links} >
+                            <ListItem button onPress={() => this.onPushPress()} iconLeft style={styles.links} >
                                 <Icon name='ios-timer-outline' />
                                 <Text style={styles.linkText}>TIMELINE</Text>
                             </ListItem>
@@ -72,7 +82,7 @@ export default class SideBar extends Component {
                                 <Icon name='ios-person-outline' />
                                 <Text style={styles.linkText}> PROFILE</Text>
                             </ListItem>
-                            <ListItem button onPress={() => this.onPushPress()}  iconLeft style={styles.links} >
+                            <ListItem button onPress={() => this.onPushPress()} iconLeft style={styles.links} >
                                 <Icon name='ios-grid' />
                                 <Text style={styles.linkText}>WIDGETS</Text>
                             </ListItem>
@@ -87,16 +97,16 @@ export default class SideBar extends Component {
                         </List>
 
                         <View style={styles.logoutContainer}>
-                            <View style={styles.logoutbtn}  foregroundColor={'white'}>
+                            <View style={styles.logoutbtn} foregroundColor={'white'}>
                                 <Grid>
                                     <Col>
-                                        <TouchableOpacity onPress={() => this.onPushPress()} style={{alignSelf: 'flex-start'}}>
-                                            <Text style={{fontWeight: 'bold', color: '#fff'}}>LOG OUT</Text>
-                                            <Text note style={{color: '#fff'}} >Kumar Sanket</Text>
+                                        <TouchableOpacity onPress={() => this.onPushPress()} style={{ alignSelf: 'flex-start' }}>
+                                            <Text style={{ fontWeight: 'bold', color: '#fff' }}>LOG OUT</Text>
+                                            <Text note style={{ color: '#fff' }} >Kumar Sanket</Text>
                                         </TouchableOpacity>
                                     </Col>
                                     <Col>
-                                        <TouchableOpacity style={{alignSelf: 'flex-end'}}  onPress={() => this.onPushPress()}>
+                                        <TouchableOpacity style={{ alignSelf: 'flex-end' }} onPress={() => this.onPushPress()}>
                                             <Thumbnail source={require('../../../images/contacts/sanket.png')} style={styles.profilePic} />
                                         </TouchableOpacity>
                                     </Col>

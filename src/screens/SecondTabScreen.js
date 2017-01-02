@@ -12,15 +12,35 @@ import {
 } from 'react-native';
 
 export default class SecondTabScreen extends Component {
-  static navigatorStyle: {
-    drawUnderTabBar: true,
+
+
+  static navigatorButtons = {
+    leftButtons: [{
+      icon: require('../../img/navicon_menu.png'),
+      id: 'menu'
+    }],
+    rightButtons: [
+      {
+        title: 'Edit',
+        id: 'edit'
+      },
+      {
+        icon: require('../../img/navicon_add.png'),
+        id: 'add'
+      }
+    ]
+  };
+  
+  static navigatorStyle = {
     navBarBackgroundColor: '#4dbce9',
     navBarTextColor: '#ffff00',
     navBarSubtitleTextColor: '#ff0000',
     navBarButtonColor: '#ffffff',
-    statusBarTextColorScheme: 'light'
+    statusBarTextColorScheme: 'light',
+    tabBarBackgroundColor: '#4dbce9',
+    tabBarButtonColor: '#ffffff',
+    tabBarSelectedButtonColor: '#ffff00'
   };
-
   constructor(props) {
     super(props);
     this.buttonsCounter = 0;
@@ -145,12 +165,15 @@ export default class SecondTabScreen extends Component {
     if (event.type == 'DeepLink') {
       const parts = event.link.split('/');
       if (parts[0] == 'tab2') {
+        this.props.navigator.switchToTab({
+          tabIndex: 1
+        });
+
         this.props.navigator.resetTo({
-          title: "Replaced Root",
+          title: "Screen Two",
           screen: parts[1],
           animated: true
         });
-        this.props.navigator.switchToTab();
       }
     }
     // handle a button press
@@ -183,7 +206,7 @@ export default class SecondTabScreen extends Component {
   }
 
   onModalPress() {
-    this.props.navigator.showModal({
+    this.props.navigator.push({
       title: "Modal",
       screen: "example.ModalScreen"
     });

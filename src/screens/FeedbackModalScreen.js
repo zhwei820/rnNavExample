@@ -26,7 +26,6 @@ export default class ModalScreen extends Component {
     ]
   };
 
-
   static navigatorStyle = {
     navBarBackgroundColor: '#4dbce9',
     navBarTextColor: '#ffff00',
