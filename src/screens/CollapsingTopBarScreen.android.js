@@ -7,17 +7,24 @@ import {
   StyleSheet,
 } from 'react-native';
 
-// collapsingToolBarImage: require('../../img/gyro_header.jpg'),
+// collapsingToolBarImage = require('../../img/gyro_header.jpg')
 // collapsingToolBarImage: "https://static.wixstatic.com/media/ec14061b42d1dc5b809367f7cfda8eff.jpg/v1/fill/w_1002,h_499,q_80/ec14061b42d1dc5b809367f7cfda8eff.webp",
 
 export default class ThirdTabScreen extends Component {
   static navigatorStyle = {
-    drawUnderTabBar: true,
+    navBarBackgroundColor: '#4dbce9',
+    navBarTextColor: '#ffff00',
+    navBarSubtitleTextColor: '#ff0000',
     navBarButtonColor: '#ffffff',
-    navBarTextColor: '#ffffff',
-    collapsingToolBarImage: require('../../img/gyro_header.jpg'),
-    collapsingToolBarCollapsedColor: '#0f2362',
-    navBarBackgroundColor: '#eeeeee'
+    statusBarTextColorScheme: 'light',
+    tabBarBackgroundColor: '#4dbce9',
+    tabBarButtonColor: '#ffffff',
+    tabBarSelectedButtonColor: '#ffff00',
+    drawUnderTabBar: true,
+    collapsingToolBarImage: 'https://static.wixstatic.com/media/ec14061b42d1dc5b809367f7cfda8eff.jpg/v1/fill/w_1002,h_499,q_80/ec14061b42d1dc5b809367f7cfda8eff.webp',
+    collapsingToolBarCollapsedColor: '#4dbce9',
+
+
   };
 
   static navigatorButtons = {
