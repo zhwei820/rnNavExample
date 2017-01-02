@@ -169,11 +169,11 @@ export default class SecondTabScreen extends Component {
           tabIndex: 1
         });
 
-        this.props.navigator.resetTo({
-          title: "Screen Two",
-          screen: parts[1],
-          animated: true
-        });
+        // this.props.navigator.resetTo({
+        //   title: "Screen Two",
+        //   screen: parts[1],
+        //   animated: true
+        // });
       }
     }
     // handle a button press
