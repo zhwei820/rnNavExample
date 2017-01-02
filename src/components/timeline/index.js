@@ -2,26 +2,20 @@
 
 import React, { Component } from 'react';
 import { Image, View, Platform } from 'react-native';
-import { connect } from 'react-redux';
-
-import { openDrawer } from '../../actions/drawer';
 
 import { Container, Header, Content, Text, Icon } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
-import HeaderContent from './../headerContent/';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
-class Timeline extends Component {
+export default class Timeline extends Component {
 
     render() {
         return (
             <Container theme={theme} style={styles.bg} >
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
-                    <Header>
-                        <HeaderContent />
-                    </Header>
+                    
                     <View style={styles.overviewHeaderContainer}>
                         <Text style={styles.overviewHeader}>Wednesday</Text>
                         <Text note  style={styles.overviewHead}>September 07, 2016</Text>
@@ -255,10 +249,3 @@ class Timeline extends Component {
     }
 }
 
-function bindAction(dispatch) {
-    return {
-        openDrawer: () => dispatch(openDrawer())
-    }
-}
-
-export default connect(null, bindAction)(Timeline);

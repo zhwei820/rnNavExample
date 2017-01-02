@@ -78,12 +78,12 @@ export default class SecondTabScreen extends Component {
             </TouchableOpacity> : false
         }
 
-        <TouchableOpacity onPress={this.onStartSingleScreenApp.bind(this)}>
-          <Text style={styles.button}>Show Single Screen App</Text>
+        <TouchableOpacity onPress={this.onInfiniteListPress.bind(this)}>
+          <Text style={styles.button}>Show infiniteListScreen</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.onStartChannelScreenApp.bind(this)}>
-          <Text style={styles.button}>Show Icon Screen App</Text>
+        <TouchableOpacity onPress={this.onTimeLinePress.bind(this)}>
+          <Text style={styles.button}>Show TimeLine</Text>
         </TouchableOpacity>
 
       </View>
@@ -130,7 +130,8 @@ export default class SecondTabScreen extends Component {
   }
   onSetTabBadgePress() {
     this.props.navigator.setTabBadge({
-      badge: ' '
+      badge: '\r',
+      fontSize: 10
     });
   }
   onToggleTabsPress() {
@@ -206,17 +207,17 @@ export default class SecondTabScreen extends Component {
     });
   }
 
-  onStartSingleScreenApp() {
+  onInfiniteListPress() {
     this.props.navigator.push({
       title: "Styled",
       screen: "example.infiniteListScreen"
     });
   }
 
-  onStartChannelScreenApp() {
+  onTimeLinePress() {
     this.props.navigator.push({
       title: "Styled",
-      screen: "example.infiniteListScreen"
+      screen: "example.TimeLineScreen"
     });
   }
 }

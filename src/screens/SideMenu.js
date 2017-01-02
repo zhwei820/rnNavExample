@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   View,
@@ -8,25 +8,34 @@ import {
   AlertIOS
 } from 'react-native';
 
+import SideBar from '../components/sideBar/index';
+
+
 export default class SideMenu extends Component {
   constructor(props) {
     super(props);
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Side Menu</Text>
 
-        <TouchableOpacity onPress={ this.onReplaceTab2Press.bind(this) }>
-          <Text style={styles.button}>Replace Tab#2 Root</Text>
-        </TouchableOpacity>
+      <SideBar navigator={this.props.navigator}>
+      </SideBar>
 
-        <TouchableOpacity onPress={ this.onModalPress.bind(this) }>
-          <Text style={styles.button}>Show Modal Screen</Text>
-        </TouchableOpacity>
-      </View>
     );
   }
+
+  // <View style={styles.container}>
+  //         <Text style={styles.title}>Side Menu</Text>
+
+  //         <TouchableOpacity onPress={ this.onReplaceTab2Press.bind(this) }>
+  //           <Text style={styles.button}>Replace Tab#2 Root</Text>
+  //         </TouchableOpacity>
+
+  //         <TouchableOpacity onPress={ this.onModalPress.bind(this) }>
+  //           <Text style={styles.button}>Show Modal Screen</Text>
+  //         </TouchableOpacity>
+  //       </View>
+
   onReplaceTab2Press() {
     this._toggleDrawer();
     // push/pop navigator actions affect the navigation stack of the current screen only.
@@ -53,27 +62,3 @@ export default class SideMenu extends Component {
     });
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    width: 300
-  },
-  title: {
-    textAlign: 'center',
-    fontSize: 18,
-    marginBottom: 10,
-    marginTop:10,
-    fontWeight: '500'
-  },
-  button: {
-    textAlign: 'center',
-    fontSize: 18,
-    marginBottom: 10,
-    marginTop:10,
-    color: 'blue'
-  }
-});
