@@ -24,7 +24,6 @@ export default class ThirdTabScreen extends Component {
     collapsingToolBarImage: 'https://static.wixstatic.com/media/ec14061b42d1dc5b809367f7cfda8eff.jpg/v1/fill/w_1002,h_499,q_80/ec14061b42d1dc5b809367f7cfda8eff.webp',
     collapsingToolBarCollapsedColor: '#4dbce9',
 
-
   };
 
   static navigatorButtons = {
